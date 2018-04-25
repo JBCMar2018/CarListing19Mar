@@ -1,3 +1,9 @@
+/*
+There are 12 errors to find
+original code is at https://github.com/JBCMar2018/CarListing19Mar
+*/
+
+
 package me.afua.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -5,13 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+
 public class MainController {
 
-    @Autowired
-    CarRepository carRepo;
 
-    @RequestMapping("/")
+
+
     public String showIndex(Model model)
     {
 
@@ -33,16 +38,16 @@ public class MainController {
         carRepo.save(aCar);
 
         model.addAttribute("cars",carRepo.findAll());
-        return "index";
+        return "home";
     }
 
     @RequestMapping("/divlist")
-    public String showDivList(Model model)
+    public String showDivList()
     {
         model.addAttribute("cars",carRepo.findAll());
         return "divlist";
     }
-    @RequestMapping("/tablelist")
+    @RequestMapping("/table")
     public String showableList(Model model)
     {
         model.addAttribute("cars",carRepo.findAll());
